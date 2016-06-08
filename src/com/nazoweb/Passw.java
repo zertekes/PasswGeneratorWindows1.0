@@ -1,11 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.nazoweb;
+import java.time.LocalDate;
 
 /**
- * Created by zertekes on 09/05/2016.
+ *
+ * @author zertekes
  */
-class Passw {
-
+public class Passw {
+    
     private int charNum;
+    private String generatedPasswordChar;
     private String generatedPassword;
 
     private String[] passwordChar = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F",
@@ -21,24 +29,25 @@ class Passw {
     public String getGeneratedPassword() {
         return generatedPassword;
     }
+    
+    
 
     public String randomChar() {
 
         if (charNum <= 1) {
-           
             return "***You can't make a password less than 1 character.***";
 
         } else {
-           
+            generatedPassword= "";
             for (int i = 0; i < charNum; i++) {
                 int randomC = (int) (Math.random() * passwordChar.length-1) + 1;
-                generatedPassword = passwordChar[randomC];
-                
-                return generatedPassword;
+                generatedPasswordChar = passwordChar[randomC];
+                generatedPassword+=generatedPasswordChar;
+
             }
+            return generatedPassword;
             
         }
-        return generatedPassword;
     }
-
+    
 }
